@@ -17,3 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('mail', function () {
+   
+    $email = [
+        'title' => 'Mail from Online Web Tutor',
+        'body' => 'Test mail sent by Laravel 9 using SMTP.'
+    ];
+   
+    Mail::to('henovar12@gmail.com')->send(new \App\Mail\CreateProjectMail($email));
+   
+    dd("Email is Sent, please check your inbox.");
+
+});
