@@ -11,14 +11,16 @@ class CreateProjectMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $email;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email)
     {
-        //
+        $this->email = $email;
     }
 
     /**
@@ -28,6 +30,7 @@ class CreateProjectMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('Asunto de correo')
+                    ->view('emails.create_project_email');
     }
 }
