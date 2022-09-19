@@ -17,5 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('test', 'App\Http\Controllers\FileController@index');
+Route::get('test/C:/archivos_metrologia/Informes/{year}/{month}/{project}/{file}', 'App\Http\Controllers\FileController@index');
