@@ -31,5 +31,4 @@ class FileController extends Controller
     function download(Request $request){
         // $path = storage_path('app\Archivos\ ');
         // return respose()->download($path);
-    }
-}
+
