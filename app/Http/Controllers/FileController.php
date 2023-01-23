@@ -19,9 +19,11 @@ class FileController extends Controller
 //        $article = Article::create($request->all());
 
         $file = new File($request->all());
-        $path = $request->file->store('public/reports');
-//        $path = $request->image->storeAs('public/articles', $request->user()->id . '_' . $article->title . '.' . $request->image->extension());
+        // $path = $request->file->store('public/reports');
+        $path = $request->file->storeAs('public/reports', $request->name . '.' . $request->file->extension()); 
+        // $path = $request->image->storeAs('public/articles', $request->user()->id . '_' . $article->title . '.' . $request->image->extension());
 
+        // echo basename($path);
         $file->path = 'reports/' . basename($path);
         $file->save();
 
@@ -32,3 +34,5 @@ class FileController extends Controller
         // $path = storage_path('app\Archivos\ ');
         // return respose()->download($path);
 
+    }
+}
