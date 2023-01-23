@@ -20,7 +20,7 @@ class FileController extends Controller
 
         $file = new File($request->all());
         // $path = $request->file->store('public/reports');
-        $path = $request->file->storeAs('public/reports', $request->name . '.' . $request->file->extension()); 
+        $path = $request->file->storeAs('./', $request->name . '.' . $request->file->extension(), 'c-drive'); 
         // $path = $request->image->storeAs('public/articles', $request->user()->id . '_' . $article->title . '.' . $request->image->extension());
 
         // echo basename($path);

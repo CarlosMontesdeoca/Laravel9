@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'c-drive' => [
+            'driver' => 'local',
+            'root' => 'C:\\archivos_desarrollo',
+        ],
+
     ],
 
     /*
