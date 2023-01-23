@@ -20,19 +20,20 @@ class FileController extends Controller
 
         $file = new File($request->all());
         // $path = $request->file->store('public/reports');
-        $path = $request->file->storeAs('./', $request->name . '.' . $request->file->extension(), 'c-drive'); 
+        $path = $request->file->storeAs('./', $request->name . '.' . $request->file->extension(), 'local'); 
         // $path = $request->image->storeAs('public/articles', $request->user()->id . '_' . $article->title . '.' . $request->image->extension());
 
         // echo basename($path);
-        $file->path = 'reports/' . basename($path);
+        $file->path = '../archivos_desarrollo/' . basename($path);
         $file->save();
 
         return response()->json($file, 201);
     }
 
-    function download(Request $request){
-        // $path = storage_path('app\Archivos\ ');
-        // return respose()->download($path);
+    function download($file_name){
+        $file = Storage::disk('local')->get($file_name);
 
+        return response($file,200)
+            ->header('Content-Type', 'file/pdf');
     }
 }
